@@ -2,6 +2,7 @@
 using FindMeARoommate.DAL.Entities;
 using FindMeARoommate.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 namespace FindMeARoommate.DAL.Repositories.Implementation;
 
@@ -19,7 +20,7 @@ public class StudentRepository : IStudentRepository
     {
         var result = await _context.Students.AddAsync(student);
         _ = await _context.SaveChangesAsync();
-         
+
         // bent return result me vleren output qe kthen ndersa return student ben return vete inputin qe merr
         return result.Entity;
         //return student;
@@ -37,6 +38,7 @@ public class StudentRepository : IStudentRepository
 
         return result.Entity;
     }
+
 
     public async Task<Student> GetAsync(int studentId)
     {
@@ -59,5 +61,13 @@ public class StudentRepository : IStudentRepository
 
         //kthen si rezultat studentin e updateuar me te dhenat e reja
         return result.Entity;
+    }
+
+    public async Task<bool> ExistAsync(string name, string surname)
+    {
+        var result = await _context.Students.AnyAsync(s => s.Name.Equals(name, StringComparison.OrdinalIgnoreCase)
+        && s.Surname.Equals(surname, StringComparison.OrdinalIgnoreCase));
+        return result;
+
     }
 }
