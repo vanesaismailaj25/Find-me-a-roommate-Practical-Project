@@ -4,8 +4,8 @@ namespace FindMeARoommate.BLL.Services.Interface
 {
     public interface IStudentService
     {
-        Task<Student> AddAssync(string name, string surname);
+        Task<Student> AddAsync(string name, string surname);
 
-        Task<Student> GetAllAsync();
+        Task<List<Student>> GetAllAsync();
     }
 }

@@ -13,7 +13,7 @@ namespace FindMeARoommate.BLL.Services
             _studentRepository = studentRepository ?? throw new ArgumentNullException(nameof(studentRepository));
         }
 
-        public async Task<Student> AddAssync(string name, string surname)
+        public async Task<Student> AddAsync(string name, string surname)
         {
             //throw new NotImplementedException();
             //Get informantion from user, name and surname,
@@ -43,11 +43,6 @@ namespace FindMeARoommate.BLL.Services
         {
             var result = await _studentRepository.GetAsync();
             return result;
-        }
-
-        Task<Student> IStudentService.GetAllAsync()
-        {
-            throw new NotImplementedException();
         }
     }
 }
