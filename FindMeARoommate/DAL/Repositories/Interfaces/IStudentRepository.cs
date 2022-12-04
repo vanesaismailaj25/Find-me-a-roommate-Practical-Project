@@ -11,5 +11,7 @@ namespace FindMeARoommate.DAL.Repositories.Interfaces
         //dy metodat e fundit jane te ngajshme vecse njera merr 1 student tjetra merr nje liste me student
         Task<Student> GetAsync(int studentId);
         Task<List<Student>> GetAsync();
+
+        Task<bool> ExistAsync(string name, string surname);
     }
 }
