@@ -1,3 +1,6 @@
+using FindMeARoommate.DAL.Context;
+using Microsoft.EntityFrameworkCore;
+
 namespace FindMeARoommate
 {
     public class Program
@@ -12,6 +15,10 @@ namespace FindMeARoommate
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            // add database dependecy -- u shtua nga ne.
+            _ = builder.Services.AddDbContext<FindMeARoomateContext>(c =>
+                c.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 

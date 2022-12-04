@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FindMeARoommate.Entities
+namespace FindMeARoommate.DAL.Entities
 {
     public partial class StudentRoom
     {
