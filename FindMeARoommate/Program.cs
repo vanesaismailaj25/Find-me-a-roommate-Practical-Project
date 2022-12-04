@@ -1,4 +1,8 @@
+using FindMeARoommate.BLL.Services;
+using FindMeARoommate.BLL.Services.Interface;
 using FindMeARoommate.DAL.Context;
+using FindMeARoommate.DAL.Repositories.Implementation;
+using FindMeARoommate.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace FindMeARoommate
@@ -19,6 +23,9 @@ namespace FindMeARoommate
             // add database dependecy -- u shtua nga ne.
             _ = builder.Services.AddDbContext<FindMeARoomateContext>(c =>
                 c.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+            _ = builder.Services.AddScoped<IStudentService, StudentService>();
 
             var app = builder.Build();
 
