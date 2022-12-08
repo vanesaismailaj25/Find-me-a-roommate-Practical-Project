@@ -14,4 +14,3 @@ namespace FindMeARoommate.DAL.Repositories.Interfaces
 
         Task<bool> ExistAsync(string name, string surname);
     }
-}
