@@ -25,7 +25,7 @@ namespace FindMeARoommate
                 c.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddScoped<IStudentRepository, StudentRepository>();
-            _ = builder.Services.AddScoped<IStudentService, StudentService>();
+            builder.Services.AddScoped<IStudentService, StudentService>();
 
             var app = builder.Build();
 
