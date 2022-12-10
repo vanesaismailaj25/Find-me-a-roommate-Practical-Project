@@ -24,8 +24,8 @@ namespace FindMeARoommate.DAL.Repositories.Implementation
 
         public async Task<Announcement> DeleteAnnouncementAsync(int id)
         {
-            var entity = GetAnnouncementAsync(id);
-            var result = await _context.Announcements.Remove(entity);
+            var entity = await GetAnnouncementAsync(id);
+            var result = _context.Announcements.Remove(entity);
 
             return result.Entity;
         }

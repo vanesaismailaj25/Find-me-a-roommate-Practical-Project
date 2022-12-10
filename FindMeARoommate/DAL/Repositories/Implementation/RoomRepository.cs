@@ -38,7 +38,7 @@ namespace FindMeARoommate.DAL.Repositories.Implementation
 
         public async Task<Room> GetRoomAsync(int id)
         {
-            var result = await _context.Rooms.ToListAsync(r => r.Id == id);
+            var result = await _context.Rooms.FirstOrDefaultAsync(r => r.Id == id);
 
             return result;
         }
