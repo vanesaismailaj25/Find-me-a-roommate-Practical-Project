@@ -7,7 +7,7 @@ namespace FindMeARoommate.DAL.Repositories.Implementation
 {
     public class AnnouncementRepository : IAnnouncementRepository
     {
-        protected FindMeARoomateContext _context;
+        protected FindMeARoomateContext    _context;
 
         public AnnouncementRepository(FindMeARoomateContext context)
         {
