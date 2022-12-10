@@ -8,6 +8,7 @@ public interface IRoomRepository
     Task<Room> UpdateRoomAsync(Room room);
     Task<Room> DeleteRoomAsync(int id);
     Task<Room> GetRoomAsync(int id);
-    Task<bool> ExistAsync(int DormitoryId, string Name);
+    Task<bool> ExistAsync(int roomId);
+    Task<bool> ExistAsync(int dormitoryId, string name);
 
 }
