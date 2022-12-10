@@ -31,9 +31,17 @@ namespace FindMeARoommate.DAL.Repositories.Implementation
             return result.Entity;
         }
 
-        public Task<bool> ExistAsync(int DormitoryId, string Name)
+        public async Task<bool> ExistAsync(int roomId)
         {
-            throw new NotImplementedException();
+            var result = await _context.Rooms.AnyAsync(x => x.Id == roomId);
+            return result;
+        }
+
+        public async Task<bool> ExistAsync(int dormitoryId, string name)
+        {
+            var result = await _context.Rooms.AnyAsync(r => r.DormitoryId == dormitoryId && r.Name == name);
+
+            return result;
         }
 
         public async Task<Room> GetRoomAsync(int id)

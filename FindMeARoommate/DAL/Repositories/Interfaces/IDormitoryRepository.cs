@@ -8,6 +8,7 @@ namespace FindMeARoommate.DAL.Repositories.Interfaces
         Task<Dormitory> UpdateDormitoryAsync(Dormitory dormitory);
         Task<Dormitory> DeletedormitoryAsync(int id);
         Task<Dormitory> GetDormitoryAsync(int id);
+        Task<List<Dormitory>> GetAllAsync();
         Task<bool> ExistDormitoryAsync(string Code, string Name);
     }
 }
